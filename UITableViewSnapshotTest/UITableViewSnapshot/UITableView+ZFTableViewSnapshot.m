@@ -13,8 +13,7 @@
 /**
  *  最后截图快照
  */
-- (UIImage *)screenshot
-{
+- (UIImage *)screenshot {
     NSMutableArray *screenshots = [NSMutableArray array];
     //表头快照
     UIImage *headerScreenshot = [self screenshotOfHeaderView];
@@ -47,8 +46,7 @@
 /**
  *  截取表头
  */
--(UIImage *)screenshotOfHeaderView
-{
+-(UIImage *)screenshotOfHeaderView {
     [self beginUpdates];
     [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     [self endUpdates];
@@ -58,32 +56,28 @@
 /**
  *  截取表尾
  */
--(UIImage *)screenshotOfFooterView
-{
+-(UIImage *)screenshotOfFooterView {
     return [self screenShotWithShotView:self.tableFooterView];
 }
 
 /**
  *  截取区头
  */
--(UIImage *)screenshotOfHeaderViewAtSection:(NSInteger)section
-{
+-(UIImage *)screenshotOfHeaderViewAtSection:(NSInteger)section {
     return [self screenShotWithShotView:[self headerViewForSection:section]];
 }
 
 /**
  *  截取区尾
  */
--(UIImage *)screenshotOfFooterViewAtSection:(NSInteger)section
-{
+-(UIImage *)screenshotOfFooterViewAtSection:(NSInteger)section {
     return [self screenShotWithShotView:[self footerViewForSection:section]];
 }
 
 /**
  *  截取cell
  */
--(UIImage *)screenshotOfCellAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UIImage *)screenshotOfCellAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     [self beginUpdates];
     [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -97,9 +91,8 @@
  *
  *  @param shotView 需截图view
  */
--(UIImage *)screenShotWithShotView:(UIView *)shotView
-{
-    UIGraphicsBeginImageContext(shotView.bounds.size);
+-(UIImage *)screenShotWithShotView:(UIView *)shotView {
+    UIGraphicsBeginImageContextWithOptions(shotView.bounds.size, NO, [UIScreen mainScreen].scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [shotView.layer renderInContext:context];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();

@@ -10,8 +10,7 @@
 
 @implementation UIImage (ZFImageFromArrayUtils)
 
-+ (UIImage *)verticalImageFromArray:(NSArray *)imagesArray
-{
++ (UIImage *)verticalImageFromArray:(NSArray *)imagesArray {
     UIImage *image = nil;
     CGSize totalImageSize = [self verticalAppendedTotalImageSizeFromImagesArray:imagesArray];
     UIGraphicsBeginImageContextWithOptions(totalImageSize, NO, 0.f);
@@ -29,8 +28,7 @@
     return image;
 }
 
-+ (CGSize)verticalAppendedTotalImageSizeFromImagesArray:(NSArray *)imagesArray
-{
++ (CGSize)verticalAppendedTotalImageSizeFromImagesArray:(NSArray *)imagesArray {
     CGSize totalSize = CGSizeZero;
     for (UIImage *img in imagesArray) {
         CGSize imgSize = [img size];

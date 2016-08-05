@@ -33,28 +33,23 @@
 }
 
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 6;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 6;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [NSString stringWithFormat:@"区头:%ld",section];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return [NSString stringWithFormat:@"区尾:%ld",section];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"UITableViewCellID";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
@@ -68,8 +63,7 @@
     return cell;
 }
 
-- (IBAction)snapshotBtn:(UIButton *)sender
-{
+- (IBAction)snapshotBtn:(UIButton *)sender {
     //截图
     UIImage * snapshotImg = [self.tableView screenshot];
     
@@ -84,8 +78,7 @@
     NSLog(@"-------保存相册---------");
 }
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     if (error == nil) {
         NSLog(@"-------保存成功---------");
         
@@ -94,9 +87,9 @@
     }
 }
 
-- (UIImage *)screenshot
-{
-    UIGraphicsBeginImageContext(self.tableView.frame.size);
+//普通系统截屏，仅获取绘制部分
+- (UIImage *)screenshot{
+    UIGraphicsBeginImageContextWithOptions(self.tableView.frame.size, NO, [UIScreen mainScreen].scale);
     CGRect tableViewFrame = self.tableView.frame;
     self.tableView.frame = CGRectMake(0.0, 0.0, self.tableView.frame.size.width, self.tableView.contentSize.height);
     [self.tableView.layer renderInContext:UIGraphicsGetCurrentContext()];
