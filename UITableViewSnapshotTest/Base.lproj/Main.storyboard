@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,35 +18,53 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RFL-Ex-nzj">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="YW7-ly-yT1"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vVQ-3U-vCx"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sk-pB-Ttt">
-                                <rect key="frame" x="270" y="526" width="60" height="44"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sk-pB-Ttt" userLabel="列表截图">
+                                <rect key="frame" x="147.5" y="593" width="80" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.68627450980000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="0U3-zk-aFS"/>
+                                    <constraint firstAttribute="width" constant="80" id="0U3-zk-aFS"/>
                                     <constraint firstAttribute="height" constant="44" id="Wh9-fa-Lua"/>
                                 </constraints>
-                                <state key="normal" title="截图"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="列表截图">
+                                    <color key="titleColor" red="0.99607843139999996" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="snapshotBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QyV-1S-WOF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewv-Eg-TDq" userLabel="全屏截图">
+                                <rect key="frame" x="147.5" y="519" width="80" height="44"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="屏幕截图">
+                                    <color key="titleColor" red="0.0" green="0.68627450980000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="screenSnapshotBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TVd-Qw-9D6"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1Sk-pB-Ttt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Oo-mZ-KE9"/>
+                            <constraint firstItem="ewv-Eg-TDq" firstAttribute="height" secondItem="1Sk-pB-Ttt" secondAttribute="height" id="Era-WZ-WaG"/>
+                            <constraint firstItem="ewv-Eg-TDq" firstAttribute="width" secondItem="1Sk-pB-Ttt" secondAttribute="width" id="FiY-jd-6z8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1Sk-pB-Ttt" secondAttribute="bottom" constant="30" id="SZD-5t-Gg8"/>
                             <constraint firstItem="RFL-Ex-nzj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="a6e-1R-fHW"/>
+                            <constraint firstItem="ewv-Eg-TDq" firstAttribute="centerX" secondItem="1Sk-pB-Ttt" secondAttribute="centerX" id="d1b-ag-h8K"/>
+                            <constraint firstItem="ewv-Eg-TDq" firstAttribute="bottom" secondItem="1Sk-pB-Ttt" secondAttribute="top" constant="-30" id="gS3-s6-Dhs"/>
                             <constraint firstItem="RFL-Ex-nzj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gdd-KW-K7X"/>
                             <constraint firstItem="RFL-Ex-nzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jX0-yn-F0s"/>
                             <constraint firstItem="RFL-Ex-nzj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="wES-QN-Gt4"/>

@@ -128,6 +128,8 @@
 				TargetAttributes = {
 					F02894871C60AC300085F160 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 747363KXQ6;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -281,10 +283,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 747363KXQ6;
 				INFOPLIST_FILE = UITableViewSnapshotTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.9188.UITableViewSnapshotTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huishuaka.UITableViewSnapshotTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0c6f1353-2165-4f49-ad71-aa3ed3681d38";
+				PROVISIONING_PROFILE_SPECIFIER = HuishuakaTestDev;
 			};
 			name = Debug;
 		};
@@ -292,9 +298,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = UITableViewSnapshotTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.9188.UITableViewSnapshotTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huishuaka.UITableViewSnapshotTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -318,6 +326,7 @@
 				F02894A11C60AC300085F160 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -19,17 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UILabel * lable1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    lable1.text = @"表头";
-    lable1.contentMode = UIViewContentModeCenter;
-    lable1.textAlignment = NSTextAlignmentCenter;
-    self.tableView.tableHeaderView = lable1;
+    UILabel * tableHeaderView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    tableHeaderView.text = @"TableHeaderView";
+    tableHeaderView.contentMode = UIViewContentModeCenter;
+    tableHeaderView.textAlignment = NSTextAlignmentCenter;
+    self.tableView.tableHeaderView = tableHeaderView;
     
-    UILabel * lable2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-    lable2.text = @"表尾";
-    lable2.contentMode = UIViewContentModeCenter;
-    lable2.textAlignment = NSTextAlignmentCenter;
-    self.tableView.tableFooterView = lable2;
+    UILabel * tableFooterView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
+    tableFooterView.text = @"TableFooterView";
+    tableFooterView.contentMode = UIViewContentModeCenter;
+    tableFooterView.textAlignment = NSTextAlignmentCenter;
+    self.tableView.tableFooterView = tableFooterView;
 }
 
 
@@ -42,11 +42,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"区头:%ld",section];
+    return [NSString stringWithFormat:@"Header In Section: %zi", section];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"区尾:%ld",section];
+    return [NSString stringWithFormat:@"Footer In Section: %zi", section];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,28 +63,41 @@
     return cell;
 }
 
+//全屏截图，仅获取已绘制部分
+- (IBAction)screenSnapshotBtnClick:(id)sender {
+	NSLog(@"----全屏截图---开始截图---------");
+
+    UIImage * snapshotImg = [self screenshot];
+
+	//保存相册
+	UIImageWriteToSavedPhotosAlbum(snapshotImg, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+
+	NSLog(@"----全屏截图结束---------");
+}
+
+//列表截图
 - (IBAction)snapshotBtn:(UIButton *)sender {
-    //截图
+	NSLog(@"----列表截图---开始截图---------");
     UIImage * snapshotImg = [self.tableView screenshot];
-    
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    
-    //仅获取绘制部分
-//    UIImage * snapshotImg = [self screenshot];
 
     //保存相册
     UIImageWriteToSavedPhotosAlbum(snapshotImg, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
-    NSLog(@"-------保存相册---------");
+    NSLog(@"----列表截图结束---------");
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+	NSString *desc = @"";
     if (error == nil) {
-        NSLog(@"-------保存成功---------");
-        
+		desc = @"保存相册成功";
     }else{
-        NSLog(@"-------保存失败---------");
+		desc = @"保存相册失败";
     }
+	NSLog(@"-------%@---------", desc);
+
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:desc delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alertView show];
 }
 
 //普通系统截屏，仅获取绘制部分
