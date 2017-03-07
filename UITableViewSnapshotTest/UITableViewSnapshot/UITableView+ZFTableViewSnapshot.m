@@ -13,7 +13,7 @@
 /**
  *  最后截图快照
  */
-- (UIImage *)screenshot {
+- (UIImage *)zf_tableViewSnapshot {
     NSMutableArray *screenshots = [NSMutableArray array];
     //表头快照
     UIImage *headerScreenshot = [self screenshotOfHeaderView];

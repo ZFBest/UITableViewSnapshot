@@ -14,6 +14,6 @@
 /**
  *  最后截图快照
  */
-- (UIImage *)screenshot;
+- (UIImage *)zf_tableViewSnapshot;
 
 @end

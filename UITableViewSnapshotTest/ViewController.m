@@ -78,7 +78,7 @@
 //列表截图
 - (IBAction)snapshotBtn:(UIButton *)sender {
 	NSLog(@"----列表截图---开始截图---------");
-    UIImage * snapshotImg = [self.tableView screenshot];
+    UIImage * snapshotImg = [self.tableView zf_tableViewSnapshot];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
 
     //保存相册
