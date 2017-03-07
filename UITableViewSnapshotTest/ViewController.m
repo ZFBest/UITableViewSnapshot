@@ -58,7 +58,7 @@
         cell.imageView.image = [UIImage imageNamed:@"Credit_logo"];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Section:%ld Row:%ld",indexPath.section, indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Section:%zi Row:%zi",indexPath.section, indexPath.row];
     
     return cell;
 }
