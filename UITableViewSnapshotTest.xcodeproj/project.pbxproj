@@ -69,7 +69,7 @@
 				F02894911C60AC300085F160 /* ViewController.h */,
 				F02894921C60AC300085F160 /* ViewController.m */,
 				F02894941C60AC300085F160 /* Main.storyboard */,
-				F02894A21C60AC920085F160 /* UITableViewSnapshot */,
+				F02894A21C60AC920085F160 /* ZFTableViewSnapshot */,
 				F028948B1C60AC300085F160 /* Supporting Files */,
 			);
 			path = UITableViewSnapshotTest;
@@ -86,7 +86,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F02894A21C60AC920085F160 /* UITableViewSnapshot */ = {
+		F02894A21C60AC920085F160 /* ZFTableViewSnapshot */ = {
 			isa = PBXGroup;
 			children = (
 				F02894A31C60AC920085F160 /* UIImage+ZFImageFromArrayUtils.h */,
@@ -94,6 +94,7 @@
 				F02894A51C60AC920085F160 /* UITableView+ZFTableViewSnapshot.h */,
 				F02894A61C60AC920085F160 /* UITableView+ZFTableViewSnapshot.m */,
 			);
+			name = ZFTableViewSnapshot;
 			path = UITableViewSnapshot;
 			sourceTree = "<group>";
 		};
