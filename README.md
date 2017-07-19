@@ -1,6 +1,8 @@
 # ZFTableViewSnapshot
 类似于高德地图路线截取tableView长图的功能
 
+##   pod 'ZFTableViewSnapshot', 
+##  - Versions: 1.0.2, 1.0.1, 1.0.0 [master repo]
 
 #### 主要功能：
 #### 调用单个方法获取整个tableView长图，类似于高德地图路线截取长图的功能；
