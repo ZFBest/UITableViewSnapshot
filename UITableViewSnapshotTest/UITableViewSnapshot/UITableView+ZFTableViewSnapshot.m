@@ -48,8 +48,15 @@
  */
 -(UIImage *)screenshotOfHeaderView {
     [self beginUpdates];
-    [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+	@try {
+		[self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+	} @catch (NSException *exception) {
+		NSLog(@"差点崩，吓死宝宝了！-->name:%@-->reason:%@-->userInfo:%@",exception.name,exception.reason,exception.userInfo);
+	}
+
     [self endUpdates];
+
     return [self screenShotWithShotView:self.tableHeaderView];
 }
 

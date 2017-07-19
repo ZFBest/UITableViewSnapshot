@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+	[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
     
     UILabel * tableHeaderView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     tableHeaderView.text = @"TableHeaderView";
@@ -31,7 +33,6 @@
     tableFooterView.textAlignment = NSTextAlignmentCenter;
     self.tableView.tableFooterView = tableFooterView;
 }
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 6;
@@ -50,14 +51,8 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"UITableViewCellID";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.imageView.image = [UIImage imageNamed:@"Credit_logo"];
-    }
-    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(UITableViewCell.class)];
+	cell.imageView.image = [UIImage imageNamed:@"Credit_logo"];
     cell.textLabel.text = [NSString stringWithFormat:@"Section:%zi Row:%zi",indexPath.section, indexPath.row];
     
     return cell;
@@ -79,7 +74,9 @@
 - (IBAction)snapshotBtn:(UIButton *)sender {
 	NSLog(@"----列表截图---开始截图---------");
     UIImage * snapshotImg = [self.tableView zf_tableViewSnapshot];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+	///结束之后滚动回顶部
+	self.tableView.contentOffset = CGPointZero;
 
     //保存相册
     UIImageWriteToSavedPhotosAlbum(snapshotImg, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
