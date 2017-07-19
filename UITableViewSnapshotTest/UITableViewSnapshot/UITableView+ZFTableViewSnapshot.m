@@ -47,16 +47,7 @@
  *  截取表头
  */
 -(UIImage *)screenshotOfHeaderView {
-    [self beginUpdates];
-
-	@try {
-		[self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-	} @catch (NSException *exception) {
-		NSLog(@"差点崩，吓死宝宝了！-->name:%@-->reason:%@-->userInfo:%@",exception.name,exception.reason,exception.userInfo);
-	}
-
-    [self endUpdates];
-
+	self.contentOffset = CGPointZero;
     return [self screenShotWithShotView:self.tableHeaderView];
 }
 
